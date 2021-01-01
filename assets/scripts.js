@@ -27,17 +27,19 @@ async function fetchCount() {
         let casesTotal = data[0].positive;
         let totalInICU = data[0].inIcuCurrently;
         let date = (data[0].date).toString();
+        //Adds commas to numbers
+        let numberTransform = new Intl.NumberFormat('en-US'); 
 
         //Sets death total to overlay
-        document.getElementById("death-total").textContent = deathTotal;
+        document.getElementById("death-total").textContent = numberTransform.format(deathTotal);
         //Sets death total to summary
-        document.getElementById("total-death-2").textContent = deathTotal;
+        document.getElementById("total-death-2").textContent = numberTransform.format(deathTotal);
         //Sets total cases to summary
-        document.getElementById("total-cases").textContent = casesTotal;
+        document.getElementById("total-cases").textContent = numberTransform.format(casesTotal);
         //Sets ICU cases to summary
-        document.getElementById("total-ICU").textContent = totalInICU;
+        document.getElementById("total-ICU").textContent = numberTransform.format(totalInICU);
         //Sets daily count to summary
-        document.getElementById("highlight-lives-lost").textContent = total;
+        document.getElementById("highlight-lives-lost").textContent = numberTransform.format(total);
 
        
         //Sets date to display
@@ -59,7 +61,7 @@ async function fetchCount() {
             document.getElementById("image-section").appendChild(div);
         }
 
-        document.getElementById("image-text").textContent=total;
+        document.getElementById("image-text").textContent = numberTransform.format(total);
 
         setTimeout(hideOverlay, 4500)
         
