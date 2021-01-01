@@ -12,6 +12,7 @@ async function fetchCount() {
         let date = (data[0].date).toString();
 
         document.getElementById("death-total").textContent = deathTotal;
+        
         let year = date.substring(0, 4);
         let month = date.substring(4, 6);
        let day = date.substring(6, 8);
