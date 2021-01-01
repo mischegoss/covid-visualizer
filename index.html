@@ -6,26 +6,36 @@
     <title>COVID Visualizer</title>
     <link rel="stylesheet" href="./assets/style.css"/>
 </head>
-<body>
-    <section id="overlay">
-        <div class="fade-in" id="overlay-box">
-        <p class="overlay-text">So far in the United States</p>
-        <p class="overlay-text" id="death-total"></p>
 
-        <p class="overlay-text">lives have been lost to</p>
-        <p class="overlay-text"><strong>COVID-19</strong></p>
-        <p class="overlay-text">The most recent daily death toll...</p>
+<body>
+  <section id="overlay">
+    <div class="fade-in" id="overlay-box">
+      <p class="overlay-text">So far in the United States</p>
+      <p class="overlay-text" id="death-total"></p>
+      <p class="overlay-text">lives have been lost to</p>
+      <p class="overlay-text">COVID-19</p><br>
+      <p class="overlay-text">The most recent daily death toll...</p>
     </div>
-   
-    </section>
-    <section id="image-section">
-        <div id="text-box">
-        <p id="image-text"></p>
-        <br>
-        <p id="image-subtext">lives lost</p>
+  </section>
+
+  <section id="image-section">
+    <div id="text-box">
+      <p id="image-text"></p>
+      <br>
+      <p id="image-subtext">lives lost</p>
     </div>
-    </section>
-    <p id="data-declaration">Most recent data as of <span id="data-date"></span></p>
+  </section>
+
+  <footer>
+    <p>Lives reported lost on <span id="assembled-date"></span>: <span id="highlight-lives-lost"></span></span></p>
+    <p>Total cases in US: <span id="total-cases"></span></p>
+    <p>Total deaths in US: <span id="total-death-2"></span></p>
+    <p>Total currently in ICU: <span id="total-ICU"></span></p>
+
+    <p class="data-declaration">Most recent data as of <span id="data-date"></span></p>
+    <p class="data-declaration">Data provided by <a href="https://covidtracking.com/"><strong>The COVID Tracking Project</strong>.</a></p>
+    <p class="data-declaration">Read more about how they count their numbers <a href="https://covidtracking.com/data">here.</a></p>
+  </footer>
 </body>
 
 </script>

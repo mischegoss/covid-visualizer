@@ -1,5 +1,20 @@
 let colors = ["darkblue", "tan", "maroon"];
 
+/* Fades and hides overlay */
+function hideOverlay() {
+    let fadeTarget = document.getElementById("overlay");
+    let fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 200);
+ }
+
 async function fetchCount() {
     let response = await fetch('https://api.covidtracking.com/v1/us/current.json');
 
@@ -11,18 +26,19 @@ async function fetchCount() {
         let deathTotal = data[0].death;
         let date = (data[0].date).toString();
 
+        //Sets death total to overlay
         document.getElementById("death-total").textContent = deathTotal;
+
+        //Sets date to display
         
         let year = date.substring(0, 4);
         let month = date.substring(4, 6);
-       let day = date.substring(6, 8);
-       let dateToConvert = year + "," + month + "," + day;
+        let day = date.substring(6, 8);
+        let dateToConvert = year + "," + month + "," + day;
+        let convertedDate = new Date(dateToConvert);
+        document.getElementById("data-date").textContent = convertedDate;
 
-       let convertedDate = new Date(dateToConvert);
-
-       document.getElementById("data-date").textContent = convertedDate;
-
-
+        //Adds block for each person to display
         for (x=0; x < total; x++) {
             let div = document.createElement("div");
             let currentColor =  Math.floor(Math.random() * Math.floor(colors.length));
@@ -33,26 +49,17 @@ async function fetchCount() {
 
         document.getElementById("image-text").textContent=total;
 
-        function hideOverlay() {
-       var fadeTarget = document.getElementById("overlay");
-       var fadeEffect = setInterval(function () {
-           if (!fadeTarget.style.opacity) {
-               fadeTarget.style.opacity = 1;
-           }
-           if (fadeTarget.style.opacity > 0) {
-               fadeTarget.style.opacity -= 0.1;
-           } else {
-               clearInterval(fadeEffect);
-           }
-       }, 200);
-
-
-
-        }
-
         setTimeout(hideOverlay, 4500)
         
     }
 }
+/* Hides fixed if reaches bottom of screen*/
+document.onscroll = function() {
+    if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+        document.getElementById('text-box').style.display ="none";
+    }else {
+        document.getElementById('text-box').style.display ="block";
+    }
 
+}
 fetchCount();

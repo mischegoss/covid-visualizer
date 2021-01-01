@@ -1,7 +1,13 @@
 * {
     margin: 0;
+    color: #191970;
 }
 
+body {
+   background-color: #eee2d2
+}
+
+/* Styling for individual blocks */
 div {
     display: inline-block;
     background-color: #191970;;
@@ -9,21 +15,20 @@ div {
     height: 20px;
 }
 
-#image-section {
-    position: relative;
-}
+/* Styling for text block with daily total */
 #text-box {
     position: fixed;
     height: 300px;
-    font: #191970;
     width: 40%;
     text-align: center;
-    top: 40vh;
-    left: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 10px;
     border: 3px solid maroon;
     background-color: rgba(210,180,140,0.8);
 }
+
 #image-text {
     font-size: 100px;
     text-align: center;
@@ -36,12 +41,12 @@ div {
     font-size: 50px;
 }
 
-#data-declaration {
-    font: #191970;
-    font-size: 25px;
+.data-declaration {
+    font-size: 15px;
 
 }
 
+/*Overlay */
 #overlay {
     position: fixed;
     width: 100vw;
@@ -58,11 +63,24 @@ div {
     margin: 100px auto;
 }
 .overlay-text {
-    font-size: 50px;
     color: tan;
     text-align: center;
+    font-size: 50px;
 }
 
+/*Info section*/
+
+footer{
+    margin: 50px auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.freeze-textbox {
+  transform: translate(0, 50%);
+}
+
+/* Fade-in for overlay text */
 .fade-in {
     animation: fadeIn ease 1.2s;
     -webkit-animation: fadeIn ease 1.2s;
@@ -113,7 +131,7 @@ div {
     100% {
       opacity:1;
   }
- 
+  }
 
 @media only screen and (max-width: 600px) {
     #image-text {
