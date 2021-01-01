@@ -1,6 +1,6 @@
 let colors = ["darkblue", "tan", "maroon"];
 
-/* Fades and hides overlay */
+//Fades and hides overlay
 function hideOverlay() {
     let fadeTarget = document.getElementById("overlay");
     let fadeEffect = setInterval(function () {
