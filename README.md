@@ -1,2 +1,3 @@
-# covid-visualizer
-Simple tool to visualize death deaths from COVID using JavaScript
+# Simple COVID Visualizer Tool
+
+Simple tool to visualize death from COVID using JavaScript and basic CSS
