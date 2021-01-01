@@ -82,11 +82,11 @@ footer{
 
 /* Fade-in for overlay text */
 .fade-in {
-    animation: fadeIn ease 1.2s;
-    -webkit-animation: fadeIn ease 1.2s;
-    -moz-animation: fadeIn ease 1.2s;
-    -o-animation: fadeIn ease 1.2s;
-    -ms-animation: fadeIn ease 1.2s;
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
   }
   @keyframes fadeIn {
     0% {

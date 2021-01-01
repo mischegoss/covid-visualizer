@@ -24,19 +24,31 @@ async function fetchCount() {
         let data = await response.json();
         let total = data[0].deathIncrease;
         let deathTotal = data[0].death;
+        let casesTotal = data[0].positive;
+        let totalInICU = data[0].inIcuCurrently;
         let date = (data[0].date).toString();
 
         //Sets death total to overlay
         document.getElementById("death-total").textContent = deathTotal;
+        //Sets death total to summary
+        document.getElementById("total-death-2").textContent = deathTotal;
+        //Sets total cases to summary
+        document.getElementById("total-cases").textContent = casesTotal;
+        //Sets ICU cases to summary
+        document.getElementById("total-ICU").textContent = totalInICU;
+        //Sets daily count to summary
+        document.getElementById("highlight-lives-lost").textContent = total;
 
+       
         //Sets date to display
-        
         let year = date.substring(0, 4);
         let month = date.substring(4, 6);
         let day = date.substring(6, 8);
         let dateToConvert = year + "," + month + "," + day;
+        let assembledDate = month + "/" + day + "/" + year;
         let convertedDate = new Date(dateToConvert);
         document.getElementById("data-date").textContent = convertedDate;
+        document.getElementById("assembled-date").textContent = assembledDate;
 
         //Adds block for each person to display
         for (x=0; x < total; x++) {
