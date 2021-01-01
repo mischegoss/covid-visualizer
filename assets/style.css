@@ -1,6 +1,10 @@
+* {
+    margin: 0;
+}
+
 div {
     display: inline-block;
-    background-color: red;
+    background-color: #191970;;
     width: 20px;
     height: 20px;
 }
@@ -36,6 +40,27 @@ div {
     font: #191970;
     font-size: 25px;
 
+}
+
+#overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #191970;
+    z-index: 100;
+}
+
+#overlay-box {
+    display: block;
+    border-top: 5px solid maroon;
+    padding: 0;
+    width: 80vw;
+    margin: 50px auto;
+}
+.overlay-text {
+    font-size: 50px;
+    color: tan;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

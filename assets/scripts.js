@@ -8,8 +8,10 @@ async function fetchCount() {
     if (response.status === 200) {
         let data = await response.json();
         let total = data[0].deathIncrease;
+        let deathTotal = data[0].death;
         let date = (data[0].date).toString();
 
+        document.getElementById("death-total").textContent = deathTotal;
         let year = date.substring(0, 4);
         let month = date.substring(4, 6);
        let day = date.substring(6, 8);
@@ -18,8 +20,6 @@ async function fetchCount() {
        let convertedDate = new Date(dateToConvert);
 
        document.getElementById("data-date").textContent = convertedDate;
-
-       console.log(convertedDate)
 
 
         for (x=0; x < total; x++) {
@@ -31,6 +31,12 @@ async function fetchCount() {
         }
 
         document.getElementById("image-text").textContent=total;
+
+        function hideOverlay() {
+       document.getElementById("overlay").style.display = "none";
+        }
+
+        setTimeout(hideOverlay, 4500)
         
     }
 }
