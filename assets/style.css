@@ -8,14 +8,11 @@ div {
 #image-section {
     position: relative;
 }
-
-#image-text {
+#text-box {
     position: fixed;
-    height: 120px;
+    height: 300px;
     font: #191970;
-    width: 40%;;
-    font-size: 100px;
-    line-height:120px;
+    width: 40%;
     text-align: center;
     top: 40vh;
     left: 30%;
@@ -23,4 +20,26 @@ div {
     border: 3px solid maroon;
     background-color: rgba(210,180,140,0.8);
 }
+#image-text {
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 50px;
+}
 
+#image-subtext {
+    margin-top: 0;
+    font-size: 50px;
+}
+
+#data-declaration {
+    font: #191970;
+    font-size: 25px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    #image-text {
+      font-size: 50px;
+    }
+  }
