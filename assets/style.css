@@ -1,0 +1,26 @@
+div {
+    display: inline-block;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+}
+
+#image-section {
+    position: relative;
+}
+
+#image-text {
+    position: fixed;
+    height: 120px;
+    font: #191970;
+    width: 40%;;
+    font-size: 100px;
+    line-height:120px;
+    text-align: center;
+    top: 40vh;
+    left: 30%;
+    border-radius: 10px;
+    border: 3px solid maroon;
+    background-color: rgba(210,180,140,0.8);
+}
+
