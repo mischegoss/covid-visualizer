@@ -13,6 +13,7 @@ function hideOverlay() {
             clearInterval(fadeEffect);
         }
     }, 200);
+    fadeTarget.style.display = "none";
  }
 
 async function fetchCount() {
