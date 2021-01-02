@@ -11,9 +11,10 @@ function hideOverlay() {
             fadeTarget.style.opacity -= 0.1;
         } else {
             clearInterval(fadeEffect);
+            fadeTarget.style.display = "none";
         }
     }, 200);
-    fadeTarget.style.display = "none";
+    
  }
 
 async function fetchCount() {
@@ -64,13 +65,13 @@ async function fetchCount() {
 
         document.getElementById("image-text").textContent = numberTransform.format(total);
 
-        setTimeout(hideOverlay, 4500)
+        setTimeout(hideOverlay, 4250)
         
     }
 }
 /* Hides fixed if reaches bottom of screen*/
 document.onscroll = function() {
-    if (window.innerHeight + window.scrollY > document.body.clientHeight) {
+    if (window.innerHeight + window.scrollY > document.body.clientHeight - 100) {
         document.getElementById('text-box').style.display ="none";
     }else {
         document.getElementById('text-box').style.display ="block";
