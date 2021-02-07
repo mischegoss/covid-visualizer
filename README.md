@@ -1,3 +1,8 @@
-# Simple COVID Visualizer Tool
+# Simple COVID Visualizer
 
-Simple tool to visualize death from COVID using JavaScript and basic CSS
+The Simple COVID Visualizer uses JavaScript and the [COVID Tracking API](https://covidtracking.com/) to render a graphic illustrating the daily death toll of COVID in the US
+
+## Demo
+
+The visualization can be seen [here](https://mischegoss.github.io/covid-visualizer/)
+
