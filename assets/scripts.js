@@ -67,8 +67,11 @@ async function fetchCount() {
 
         setTimeout(hideOverlay, 4250)
         
+    } else {
+      console.log("Status error returned: " + response.status);
     }
 }
+
 /* Hides fixed if reaches bottom of screen*/
 document.onscroll = function() {
     if (window.innerHeight + window.scrollY > document.body.clientHeight - 100) {
@@ -78,4 +81,7 @@ document.onscroll = function() {
     }
 }
 
-fetchCount();
+fetchCount().catch(err => {
+  console.error(err)
+});
+
