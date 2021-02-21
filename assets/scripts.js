@@ -76,6 +76,6 @@ document.onscroll = function() {
     }else {
         document.getElementById('text-box').style.display ="block";
     }
-
 }
+
 fetchCount();
