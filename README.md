@@ -134,6 +134,4 @@ All `async` functions return a promise, so to handle errors we simply need to ad
 
   * A live version of this app is available [here](https://mischegoss.github.io/covid-visualizer/)
 
-  * The JavaScript used in this tutorial is found in this repo [here](./assets/scripts.js)
-
-
+  * The code used in this tutorial is found in this repo [here](./assets/scripts.js)
