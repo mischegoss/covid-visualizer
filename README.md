@@ -130,3 +130,10 @@ All `async` functions return a promise, so to handle errors we simply need to ad
 
  * [Async Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
+## Seeing the Code in Action
+
+  * A live version of this app is available [here](https://mischegoss.github.io/covid-visualizer/)
+
+  * The JavaScript used in this tutorial is found in this repo [here](./assets/scripts.js)
+
+
