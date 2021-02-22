@@ -28,7 +28,7 @@ The COVID Tracking Project API does not require a key. Instead, we can fetch dat
 
 ## Using the Fetch API
 
-To start, we create a function to hold the code we need to fetch our data and insert it into the user interface. Since the Fetch API returns a promise, we use [`async/await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to declare the function asynchronous.
+In our JavaScript file, we create a function to hold the code we need to fetch our data and insert it into the user interface. Since the Fetch API returns a promise, we use the [`async` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to declare the function asynchronous.
 
 Using `async/await`also simplifies the syntax needed to get up and running. 
 
@@ -117,6 +117,72 @@ All `async` functions return a promise, so to handle errors we simply add the [`
     console.error(err)
   });
   ```
+  
+## Putting It Together
+
+  ```js
+  // Declare async function
+  async function fetchCount() {
+    // Use fetch() method to retrieve data from third-party API
+    let response = await fetch('https://api.covidtracking.com/v1/us/current.json');
+    
+    // Test if response status is 200
+    if (response.status === 200) {
+      // Parse response as JSON Object
+      let data = await response.json();
+      
+      //Store data in variable
+      let total = data[0].deathIncrease;
+      let deathTotal = data[0].death;
+      let casesTotal = data[0].positive;
+      let totalInICU = data[0].inIcuCurrently;
+      let date = (data[0].date).toString();
+      //Adds commas to numbers
+      let numberTransform = new Intl.NumberFormat('en-US');
+      
+      //Display data in user interface
+      //Sets death total to overlay
+      document.getElementById("death-total").textContent = numberTransform.format(deathTotal);
+      //Sets death total to summary
+      document.getElementById("total-death-2").textContent = numberTransform.format(deathTotal);
+      //Sets total cases to summary
+      document.getElementById("total-cases").textContent = numberTransform.format(casesTotal);
+      //Sets ICU cases to summary
+      document.getElementById("total-ICU").textContent = numberTransform.format(totalInICU);
+      //Sets daily count to summary
+      document.getElementById("highlight-lives-lost").textContent = numberTransform.format(total);
+      
+      //Sets date to display
+      let year = date.substring(0, 4);
+      let month = date.substring(4, 6);
+      let day = date.substring(6, 8);
+      let dateToConvert = year + "," + month + "," + day;
+      let assembledDate = month + "/" + day + "/" + year;
+      let convertedDate = new Date(dateToConvert);
+      document.getElementById("data-date").textContent = convertedDate;
+      document.getElementById("assembled-date").textContent = assembledDate;
+
+      // Use data in JavaScript to perform a function
+      //Adds block for each person to display
+      for (x=0; x < total; x++) {
+        let div = document.createElement("div");
+        let currentColor =  Math.floor(Math.random() * Math.floor(colors.length));
+        div.style.backgroundColor = colors[currentColor];
+        div.textContent="👤"
+        document.getElementById("image-section").appendChild(div);
+      }   
+      document.getElementById("image-text").textContent = numberTransform.format(total);
+      setTimeout(hideOverlay, 4250)
+      } else {
+        console.log("Status error returned: " + response.status);
+      }
+  }
+
+  ```
+
+  * A live version of this app is available [here](https://mischegoss.github.io/covid-visualizer/)
+
+  * The code used in this tutorial is found in this repo [here](./assets/scripts.js)
 
  ## Additional Information
 
