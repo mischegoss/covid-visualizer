@@ -30,7 +30,7 @@ The COVID Tracking Project API does not require a key. Instead, we can fetch dat
 
 In our JavaScript file, we create a function to hold the code we need to fetch our data and insert it into the user interface. Since the Fetch API returns a promise, we use the [`async` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to declare the function asynchronous.
 
-Using `async/await`also simplifies the syntax needed to get up and running. 
+Using `async/await` also simplifies the syntax needed to get up and running. 
 
 
   ```js
@@ -63,7 +63,7 @@ To use the data, we store the values found in the `data` JSON object in variable
 
 ## Handling Unsuccessful Responses
 
-When the Fetch API attempts to retrieve data, a [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned, even if the data fetch was unsuccessful. 
+When the Fetch API attempts to retrieve data, a [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned, even if the fetch was unsuccessful. 
 
 We can use the `response.status` property of this returned object in an if statement to only execute our code if we have a successful response.
 
@@ -120,6 +120,16 @@ All `async` functions return a promise, so to handle errors we simply add the [`
   
 ## Putting It Together
 
+Using the Fetch API is as simple as using a URL to fetch data and parsing the successful response into a JSON object. 
+
+The sample code below demonstrates the following steps used to put the Fetch API to work in your code to retrieve data from the COVID Tracking API:
+
+  * Using the `fetch()` method to retrieve data from the third-party library
+  * Testing if the response is successful
+  * Using the `body.json()` method to parse the response into a JSON object
+  * Storing the data we need in variables
+  * Using the variables to update the user interface or directly in our Javascript code
+
   ```js
   // Declare async function
   async function fetchCount() {
@@ -163,7 +173,6 @@ All `async` functions return a promise, so to handle errors we simply add the [`
       document.getElementById("assembled-date").textContent = assembledDate;
 
       // Use data in JavaScript to perform a function
-      //Adds block for each person to display
       for (x=0; x < total; x++) {
         let div = document.createElement("div");
         let currentColor =  Math.floor(Math.random() * Math.floor(colors.length));
@@ -173,16 +182,16 @@ All `async` functions return a promise, so to handle errors we simply add the [`
       }   
       document.getElementById("image-text").textContent = numberTransform.format(total);
       setTimeout(hideOverlay, 4250)
-      } else {
-        console.log("Status error returned: " + response.status);
-      }
+    } else {
+      console.log("Status error returned: " + response.status);
+    }
   }
 
   ```
 
   * A live version of this app is available [here](https://mischegoss.github.io/covid-visualizer/)
 
-  * The code used in this tutorial is found in this repo [here](./assets/scripts.js)
+  * The JavaScript code used in this tutorial is also found in this repo [here](./assets/scripts.js)
 
  ## Additional Information
 
@@ -198,10 +207,5 @@ All `async` functions return a promise, so to handle errors we simply add the [`
 
  * [Third-party APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs)
 
- * [Async Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-
-## Seeing the Code in Action
-
-  * A live version of this app is available [here](https://mischegoss.github.io/covid-visualizer/)
-
-  * The code used in this tutorial is found in this repo [here](./assets/scripts.js)
+ * [Async Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+ 
