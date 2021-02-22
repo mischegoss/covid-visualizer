@@ -65,16 +65,16 @@ To use the data, we store the values found in the `data` JSON object in variable
 
 When the Fetch API attempts to retrieve data, a [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned, even if the fetch was unsuccessful. 
 
-We can use the `response.status` property of this returned object in an if statement to only execute our code if we have a successful response.
+We can use the `response.status` property of this returned object to test if the fetch was successful, and, if so, handle the data.  
 
   ```js
   if (response.status === 200) {/*Code to store and manipulate retrieved data*/}
   ```
 
-If the response is not successful, we console log the error.
+If the response is not successful, we simply console log the status returned. 
 
   ```js
-  console.log("Status error returned: " + response.status);
+  console.log("Status returned: " + response.status);
   ```
 
 ## Updating our User Interface
