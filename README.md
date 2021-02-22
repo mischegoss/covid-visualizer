@@ -89,7 +89,7 @@ The `document.getElementbyId()` method selects an HTML element by its `id` attri
     <p class="overlay-text" id="death-total"></p>
     ```
 
-  * We use the `id` attribute to select the element using `document.getElementById()`.
+  * Then, we use the `id` attribute to select the element using `document.getElementById()`.
 
     ```js
     document.getElementById("death-total")
@@ -127,8 +127,8 @@ The sample code below demonstrates the following steps used to put the Fetch API
   * Using the `fetch()` method to retrieve data from the third-party library
   * Testing if the response is successful
   * Using the `body.json()` method to parse the response into a JSON object
-  * Storing the data we need in variables
-  * Using the variables to update the user interface or directly in our Javascript code
+  * Storing the retrieved data in variables
+  * Using the variables to update the user interface
 
   ```js
   // Declare async function
