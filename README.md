@@ -14,13 +14,13 @@ We will use two kinds of APIs to fetch the COVID-19 data.
 
   * __Browser-Level APIs__ are built into the browser and allow us to implement complex functionality easily. We will use the Fetch API's `fetch()` method to retrieve our data. We will also use the Web API methods `body.json()` and `document.getElementById()` to parse the data and select the HTML element we want to update. 
 
-  * __Third-Party APIs__ are developed by a third-party source and can be used to access functionality or data. We will access COVID-19 data from the [COVID Tracking Project API](https://covidtracking.com/data/api).
+  * __Third-Party APIs__ are developed by a third-party source and can be used to access functionality or data from another source. We will access COVID-19 data from the [COVID Tracking Project API](https://covidtracking.com/data/api).
 
 ## Using the COVID Tracking Project API
 
 To interact with a third-party API, it is important to look [directly at the docs](https://covidtracking.com/data/api).
 
-The COVID Tracking Project API does not require a key. Instead, we can fetch data directly using the URL provided.
+The COVID Tracking Project API does not require a key. Instead, we can fetch data directly using the URL provided to retrieve the current data. 
 
   ```md
   https://api.covidtracking.com/v1/us/current.json
@@ -28,14 +28,16 @@ The COVID Tracking Project API does not require a key. Instead, we can fetch dat
 
 ## Using the Fetch API
 
-To start, we create a function to hold our fetch functionality. Since the Fetch API returns a promise, we use [`async/await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to declare the function asynchronous and simplify the syntax needed to get up and running. 
+To start, we create a function to hold the code we need to fetch our data and insert it into the user interface. Since the Fetch API returns a promise, we use [`async/await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to declare the function asynchronous.
+
+Using `async/await`also simplifies the syntax needed to get up and running. 
 
 
   ```js
   async function fetchCount() {/*We will add our functionality here*/}
   ```
 
-Inside the `fetchCount()` function, we use the `fetch()` method to retrieve data from the COVID Tracking API and store the results in a variable. We add the `await` keyword so that the action is completed only after the fetch is performed. 
+Inside the `fetchCount()` function, we use the `fetch()` method to retrieve data from the COVID Tracking API and store the results in a variable. We add the `await` keyword in front of the method so that the action is completed only after the fetch is performed. 
 
 Please note that `await` only works if the `async` keyword has been used to declare a function asynchronous! 
 
@@ -49,7 +51,7 @@ We store the data returned in a variable `data` and use the [`body.json()` metho
    let data = await response.json();
   ```
 
-To use the data, we store the values found in the `data` JSON object in variables. We can then use these variables to populate our user interface or otherwise use the data in our JavaScript code, as needed. 
+To use the data, we store the values found in the `data` JSON object in variables. This allows us to easily populate our user interface or otherwise use the data in our JavaScript code. 
 
   ```js
   let total = data[0].deathIncrease;
@@ -63,7 +65,7 @@ To use the data, we store the values found in the `data` JSON object in variable
 
 When the Fetch API attempts to retrieve data, a [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned, even if the data fetch was unsuccessful. 
 
-We can use the `response.status` property of this returned object to only execute our code if we have a successful response.
+We can use the `response.status` property of this returned object in an if statement to only execute our code if we have a successful response.
 
   ```js
   if (response.status === 200) {/*Code to store and manipulate retrieved data*/}
@@ -79,7 +81,7 @@ If the response is not successful, we console log the error.
 
 To display the data to our users, we use the [`document.getElementById()` Web API method](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) and the [`textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property.
 
-The `document.getElementbyId()` method selects an HTML element by id.
+The `document.getElementbyId()` method selects an HTML element by its `id` attribute. 
 
   * In the HTML, we add an `id` attribute to the element we want to select. 
 
@@ -93,7 +95,7 @@ The `document.getElementbyId()` method selects an HTML element by id.
     document.getElementById("death-total")
     ```
 
-We then use the `textContent` property to set the content of the selected HTML element to the value we want to display. 
+Next, we use the `textContent` property to set the content of the selected HTML element to the value we want to display. 
 
   ```js
   document.getElementById("death-total").textContent = deathTotal;
@@ -108,7 +110,7 @@ Sometimes, the data -- including numbers -- may need to be reformatted to displa
 
 ## Error Handling
 
-All `async` functions return a promise, so to handle errors we simply add the [`catch()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) when we call the `fetchCount()` function that holds all of our fetch functionality.
+All `async` functions return a promise, so to handle errors we simply add the [`catch()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) when we call the `fetchCount()` function. 
 
   ```js
   fetchCount().catch(err => {
